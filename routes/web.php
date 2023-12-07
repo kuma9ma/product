@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,12 +20,17 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'auth'], function(){
 
-Route::prefix('items')->group(function () {
-    Route::get('/', [App\Http\Controllers\ItemController::class, 'index']);
-    Route::get('/add', [App\Http\Controllers\ItemController::class, 'add']);
-    Route::post('/add', [App\Http\Controllers\ItemController::class, 'add']);
-    Route::post('/delete', [App\Http\Controllers\ItemController::class, 'delete']);
+    //対象のルーティングを記載
+    
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
 
+    Route::prefix('tenants')->group(function () {
+        Route::get('/', [App\Http\Controllers\TenantController::class, 'index']);
+        Route::get('/add', [App\Http\Controllers\TenantController::class, 'add']);
+        Route::post('/add', [App\Http\Controllers\TenantController::class, 'add']);
+        Route::post('/delete', [App\Http\Controllers\TenantController::class, 'delete']);
+    });
 });

@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', '商品一覧')
+@section('title', '入居者一覧')
 
 @section('content_header')
-    <h1>商品一覧</h1>
+    <h1>入居者一覧</h1>
 @stop
 
 @section('content')
@@ -11,11 +11,11 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">商品一覧</h3>
+                    <h3 class="card-title">入居者一覧</h3>
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
-                                <a href="{{ url('items/add') }}" class="btn btn-default">商品登録</a>
+                                <a href="{{ url('tenants/add') }}" class="btn btn-default">入居者登録</a>
                             </div>
                         </div>
                     </div>
@@ -26,23 +26,19 @@
                             <tr>
                                 <th>ID</th>
                                 <th>名前</th>
-                                <th>種別</th>
-                                <th>詳細</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($items as $item)
+                            @foreach ($tenants as $tenant)
                                 <tr>
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->type }}</td>
-                                    <td>{{ $item->detail }}</td>
+                                    <td>{{ $tenant->id }}</td>
+                                    <td>{{ $tenant->name }}</td>
                                     <td>
-                                        <form action="{{url('items/delete')}}" method="post"
+                                        <form action="{{url('tenants/delete')}}" method="post"
                                         onsubmit="return confirm('削除します。よろしいですか？')">
                                         @csrf
-                                        <input type="hidden" name="id" value="{{ $item->id}}">
+                                        <input type="hidden" name="id" value="{{ $tenant->id}}">
                                         <input type="submit" value="削除" class="btn btn-danger">
                                         </form>
                                     </td>
