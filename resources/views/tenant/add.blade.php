@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', '商品登録')
+@section('title', '入居者登録')
 
 @section('content_header')
-    <h1>商品登録</h1>
+    <h1>入居者登録</h1>
 @stop
 
 @section('content')
@@ -26,16 +26,6 @@
                         <div class="form-group">
                             <label for="name">名前</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="名前">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="type">種別</label>
-                            <input type="text" class="form-control" id="type" name="type" placeholder="種別">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="detail">詳細</label>
-                            <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
                         </div>
                     </div>
 
