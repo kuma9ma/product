@@ -44,10 +44,20 @@ class VitalController extends Controller
             ]);
 
 
-            return redirect('vitals/index'.$request->id);
+            return redirect('vitals/'.$request->id);
         }
 
         return view('vital.add', ['id'=>$id]);
+    }
+
+    /**
+     * バイタル削除
+     */
+    public function delete(Request $request){
+        $tenant =  Vital::find($request->id);
+        $tenant->delete();
+
+        return redirect('vitals/'.$request->id);
     }
 
 }

@@ -34,7 +34,7 @@
                                 <tr>
                                     <td>{{ $tenant->id }}</td>
                                     <td>
-                                    <a href="{{ url('tenants/vital') }}/{{ $tenant->id }}">
+                                    <a href="{{ url('vitals/'. $tenant->id) }}">
                                         {{ $tenant->name }}
                                     </a>
                                     </td>
