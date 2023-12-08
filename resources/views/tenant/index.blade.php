@@ -33,7 +33,11 @@
                             @foreach ($tenants as $tenant)
                                 <tr>
                                     <td>{{ $tenant->id }}</td>
-                                    <td>{{ $tenant->name }}</td>
+                                    <td>
+                                    <a href="{{ url('tenants/vital') }}/{{ $tenant->id }}">
+                                        {{ $tenant->name }}
+                                    </a>
+                                    </td>
                                     <td>
                                         <form action="{{url('tenants/delete')}}" method="post"
                                         onsubmit="return confirm('削除します。よろしいですか？')">

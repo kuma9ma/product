@@ -13,4 +13,12 @@ class Tenant extends Model
         'user_id',
         'name',
     ];
+
+      /**
+        * Vitalを保持するTenant(入居者)の取得
+        */
+        public function vital()
+        {
+            return $this->hasMany(Vital::class);
+        }
 }

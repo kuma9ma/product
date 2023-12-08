@@ -22,15 +22,17 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function(){
 
-    //対象のルーティングを記載
-    
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    
 
     Route::prefix('tenants')->group(function () {
         Route::get('/', [App\Http\Controllers\TenantController::class, 'index']);
         Route::get('/add', [App\Http\Controllers\TenantController::class, 'add']);
         Route::post('/add', [App\Http\Controllers\TenantController::class, 'add']);
         Route::post('/delete', [App\Http\Controllers\TenantController::class, 'delete']);
+        
+        Route::get('/vital/{id}', [App\Http\Controllers\TenantController::class, 'vital']);
+        Route::get('/vital_add/{id}', [App\Http\Controllers\TenantController::class, 'vital_add']);
+        Route::post('/vital_add/{id}', [App\Http\Controllers\TenantController::class, 'vital_add']);
+
     });
 });
