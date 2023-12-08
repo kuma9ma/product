@@ -18,7 +18,16 @@ class TenantController extends Controller
         // 入居者一覧取得
         $tenants = Tenant::all();
 
-        return view('tenant.index', compact('tenants'));
+        $attentionVitals =
+            Vital::where('kt', '>=', 37.5)
+            ->orWhere('sbp', '>=', 135)
+            ->orWhere('sbp', '<=', 90)
+            ->orWhere('dbp', '<=', 60)
+            ->orWhere('spo2', '<=', 90)
+            ->get();
+
+
+        return view('tenant.index', compact('tenants', 'attentionVitals'));
     }
 
     /**
@@ -49,12 +58,22 @@ class TenantController extends Controller
     /**
      * 入居者削除
      */
-    public function delete(Request $request){
+    public function delete(Request $request)
+    {
         $tenant = Tenant::find($request->id);
+        $tenant->vitals()->delete();
         $tenant->delete();
 
         return redirect('/tenants');
     }
 
-   
+
+    /**
+     * バイタル異常値の入居者一覧
+     */
+    public function show()
+    {
+        $tenants = Tenant::where('kt', '=>', 37.5)->get();
+        dd($tenants);
+    }
 }
