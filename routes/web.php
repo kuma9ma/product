@@ -29,10 +29,12 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/add', [App\Http\Controllers\TenantController::class, 'add']);
         Route::post('/add', [App\Http\Controllers\TenantController::class, 'add']);
         Route::post('/delete', [App\Http\Controllers\TenantController::class, 'delete']);
+    });
         
-        Route::get('/vital/{id}', [App\Http\Controllers\TenantController::class, 'vital']);
-        Route::get('/vital_add/{id}', [App\Http\Controllers\TenantController::class, 'vital_add']);
-        Route::post('/vital_add/{id}', [App\Http\Controllers\TenantController::class, 'vital_add']);
-
+    Route::prefix('vitals')->group(function () {
+        Route::get('/{id}', [App\Http\Controllers\VitalController::class, 'index']);
+        Route::get('/add/{id}', [App\Http\Controllers\VitalController::class, 'add']);
+        Route::post('/add/{id}', [App\Http\Controllers\VitalController::class, 'add']);
+        Route::post('/delete', [App\Http\Controllers\VitalController::class, 'delete']);
     });
 });

@@ -15,7 +15,7 @@
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
-                                <a href="{{ url('tenants/vital_add/'.$tenants->id)}}"class="btn btn-default">バイタル登録</a>
+                                <a href="{{ url('vitals/add/'.$tenants->id)}}"class="btn btn-default">バイタル登録</a>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                                     <td>{{ $vital->created_at }}</td>
                                     <td>{{ $vital->user->name }}</td>
                                     <td>
-                                        <form action="{{ url('tenants/delete') }}" method="post"
+                                        <form action="{{ url('vitals/delete') }}" method="post"
                                             onsubmit="return confirm('削除します。よろしいですか？')">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $vital->id }}">
