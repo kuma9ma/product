@@ -19,11 +19,11 @@ class Vital extends Model
     ];
 
      /**
-        * Tenant(入居者)の保持する全vital
+        * 
         */
         public function tenant()
         {
-            return $this->hasMany(Tenant::class);
+            return $this->belongsTo(Tenant::class);
         }
 
 

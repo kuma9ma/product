@@ -54,10 +54,10 @@ class VitalController extends Controller
      * バイタル削除
      */
     public function delete(Request $request){
-        $tenant =  Vital::find($request->id);
-        $tenant->delete();
-
-        return redirect('vitals/'.$request->id);
+        $vital =  Vital::find($request->id);
+        $tenant_id = $vital->tenant->id;
+        $vital->delete();
+        return redirect('vitals/'.$tenant_id);
     }
 
 }
