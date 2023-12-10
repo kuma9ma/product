@@ -23,7 +23,7 @@ class TenantController extends Controller
             ->orWhere('sbp', '>=', 135)
             ->orWhere('sbp', '<=', 90)
             ->orWhere('dbp', '<=', 60)
-            ->orWhere('spo2', '<=', 90)
+            ->orWhere('spo2', '<=', 89)
             ->get();
 
 
