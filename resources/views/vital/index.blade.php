@@ -42,7 +42,7 @@
                                     <td>{{ $vital->sbp }}</td>
                                     <td>{{ $vital->dbp }}</td>
                                     <td>{{ $vital->spo2 }}</td>
-                                    <td>{{ $vital->created_at }}</td>
+                                    <td>{{ $vital->created_at->format('y/m/d h:i') }}</td>
                                     <td>{{ $vital->user->name }}</td>
                                     <td>
                                         <form action="{{ url('vitals/delete') }}" method="post"
