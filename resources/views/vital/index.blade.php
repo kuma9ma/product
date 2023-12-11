@@ -3,7 +3,7 @@
 @section('title', '入居者一覧')
 
 @section('content_header')
-    <h1>{{$tenants->name}}</h1>
+    <h1>{{ $tenants->name }}</h1>
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
-                                <a href="{{ url('vitals/add/'.$tenants->id)}}"class="btn btn-default">バイタル登録</a>
+                                <a href="{{ url('vitals/add/' . $tenants->id) }}"class="btn btn-default">バイタル登録</a>
                             </div>
                         </div>
                     </div>
@@ -26,8 +26,8 @@
                             <tr>
                                 <th>ID</th>
                                 <th>KT</th>
-                                <th>SBP</th>
-                                <th>DBP</th>
+                                <th>BP</th>
+                                <th>P</th>
                                 <th>SPO2</th>
                                 <th>日時</th>
                                 <th>職員名</th>
@@ -39,8 +39,8 @@
                                 @foreach ($vitals as $vital)
                                     <td>{{ $vital->id }}</td>
                                     <td>{{ $vital->kt }}</td>
-                                    <td>{{ $vital->sbp }}</td>
-                                    <td>{{ $vital->dbp }}</td>
+                                    <td>{{ $vital->sbp }} / {{ $vital->dbp }}</td>
+                                    <td>{{ $vital->p }}</td>
                                     <td>{{ $vital->spo2 }}</td>
                                     <td>{{ $vital->created_at->format('y/m/d h:i') }}</td>
                                     <td>{{ $vital->user->name }}</td>
