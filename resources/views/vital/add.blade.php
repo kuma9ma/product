@@ -37,6 +37,10 @@
                             <input type="text" class="form-control" id="dbp" name="dbp" placeholder="75">
                         </div>
                         <div class="form-group">
+                            <label for="p">P(脈拍)</label>
+                            <input type="text" class="form-control" id="p" name="p" placeholder="65">
+                        </div>
+                        <div class="form-group">
                             <label for="spo2">SPO2(血中酸素濃度)</label>
                             <input type="text" class="form-control" id="spo2" name="spo2" placeholder="99">
                         </div>

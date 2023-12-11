@@ -40,6 +40,7 @@ class VitalController extends Controller
                 'kt' => $request->kt,
                 'sbp' => $request->sbp,
                 'dbp' => $request->dbp,
+                'p' => $request->p,
                 'spo2' => $request->spo2,
             ]);
 

@@ -12,9 +12,9 @@
             <div class="card">
                 <div class="card-header">
                     @if (count($attentionVitals) > 0)
-                    <h3 class="card-title">要観察者</h3>
+                        <h3 class="card-title">要観察者</h3>
                     @else
-                    <h3 class="card-title">要観察者はいません</h3>
+                        <h3 class="card-title">要観察者はいません</h3>
                     @endif
                 </div>
                 @if (count($attentionVitals) > 0)
@@ -25,8 +25,8 @@
                                 <tr>
                                     <th>名前</th>
                                     <th>KT</th>
-                                    <th>SBP</th>
-                                    <th>DBP</th>
+                                    <th>BP</th>
+                                    <th>P</th>
                                     <th>SPO2</th>
                                     <th>日時</th>
                                     <th>操作</th>
@@ -46,14 +46,15 @@
                                             <td>{{ $attentionVital->kt }}</td>
                                         @endif
                                         @if ($attentionVital->sbp >= 135)
-                                            <td class="text-red">{{ $attentionVital->sbp }}</td>
+                                            <td class="text-red">{{ $attentionVital->sbp }} / {{ $attentionVital->dbp }}
+                                            </td>
                                         @else
-                                            <td>{{ $attentionVital->dbp }}</td>
+                                            <td>{{ $attentionVital->sbp }} / {{ $attentionVital->dbp }}</td>
                                         @endif
-                                        @if ($attentionVital->dbp <= 60)
-                                            <td class="text-red">{{ $attentionVital->dbp }}</td>
+                                        @if ($attentionVital->p <= 89)
+                                            <td class="text-red">{{ $attentionVital->P }}</td>
                                         @else
-                                            <td>{{ $attentionVital->dbp }}</td>
+                                            <td>{{ $attentionVital->p }}</td>
                                         @endif
                                         @if ($attentionVital->spo2 <= 89)
                                             <td class="text-red">{{ $attentionVital->spo2 }}</td>

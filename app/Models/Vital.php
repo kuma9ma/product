@@ -15,6 +15,7 @@ class Vital extends Model
         'kt',
         'sbp',
         'dbp',
+        'p',
         'spo2',
     ];
 
