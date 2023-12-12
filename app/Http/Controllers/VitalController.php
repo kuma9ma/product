@@ -52,6 +52,34 @@ class VitalController extends Controller
     }
 
     /**
+     * バイタル編集
+     */
+
+     public function edit(Request $request, $id)
+     {
+         $vitals = Vital::where('id', '=', $request->id)->first();
+         // POSTリクエストのとき
+         if ($request->isMethod('post')) {
+             // バリデーション
+             $this->validate($request, [
+    
+             ]);
+ 
+             // バイタル編集
+             $vitals->kt = $request->kt;
+             $vitals->sbp = $request->sbp;
+             $vitals->dbp = $request->dbp;
+             $vitals->p = $request->p;
+             $vitals->spo2= $request->spo2;
+             $vitals->save();
+ 
+             return redirect('vitals/'.$vitals->tenant_id);
+         }
+         
+         return view('vital.edit', compact('vitals'), ['id'=>$id]);
+     }
+
+    /**
      * バイタル削除
      */
     public function delete(Request $request){

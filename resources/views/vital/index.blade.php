@@ -44,12 +44,13 @@
                                     <td>{{ $vital->spo2 }}</td>
                                     <td>{{ $vital->created_at->format('y/m/d h:i') }}</td>
                                     <td>{{ $vital->user->name }}</td>
-                                    <td>
+                                    <td class="d-flex">
+                                        <a class="btn btn-primary" href="{{ url('vitals/edit/' . $vital->id)}}">編集</a>
                                         <form action="{{ url('vitals/delete') }}" method="post"
                                             onsubmit="return confirm('削除します。よろしいですか？')">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $vital->id }}">
-                                            <input type="submit" value="削除" class="btn btn-danger">
+                                            <input type="submit" value="削除" class="mx-1 btn btn-danger">
                                         </form>
                                     </td>
                             </tr>

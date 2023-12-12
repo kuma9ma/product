@@ -51,8 +51,8 @@
                                         @else
                                             <td>{{ $attentionVital->sbp }} / {{ $attentionVital->dbp }}</td>
                                         @endif
-                                        @if ($attentionVital->p <= 89)
-                                            <td class="text-red">{{ $attentionVital->P }}</td>
+                                        @if ($attentionVital->p >= 100)
+                                            <td class="text-red">{{ $attentionVital->p }}</td>
                                         @else
                                             <td>{{ $attentionVital->p }}</td>
                                         @endif
@@ -63,7 +63,7 @@
                                         @endif
                                         <td>{{ $attentionVital->created_at->format('m/d h:i') }}</td>
                                         <td>
-                                            <form action="{{ url('tenants/delete') }}" method="post"
+                                            <form action="{{ url('vitals/delete') }}" method="post"
                                                 onsubmit="return confirm('削除します。よろしいですか？')">
                                                 @csrf
                                                 <input type="hidden" name="id" value="{{ $attentionVital->id }}">
@@ -111,12 +111,13 @@
                                             {{ $tenant->name }}
                                         </a>
                                     </td>
-                                    <td>
+                                    <td class="d-flex">
+                                        <a class="btn btn-primary" href="{{ url('tenants/edit/' . $tenant->id)}}">編集</a>
                                         <form action="{{ url('tenants/delete') }}" method="post"
                                             onsubmit="return confirm('削除します。よろしいですか？')">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $tenant->id }}">
-                                            <input type="submit" value="削除" class="btn btn-danger">
+                                            <input type="submit" value="削除" class="mx-1 btn btn-danger">
                                         </form>
                                     </td>
                                 </tr>

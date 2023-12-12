@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/add', [App\Http\Controllers\TenantController::class, 'add']);
         Route::post('/add', [App\Http\Controllers\TenantController::class, 'add']);
         Route::post('/delete', [App\Http\Controllers\TenantController::class, 'delete']);
+        Route::get('/edit/{id}', [App\Http\Controllers\TenantController::class, 'edit']);
+        Route::post('/edit/{id}', [App\Http\Controllers\TenantController::class, 'edit']);
     });
         
     Route::prefix('vitals')->group(function () {
@@ -36,5 +38,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/add/{id}', [App\Http\Controllers\VitalController::class, 'add']);
         Route::post('/add/{id}', [App\Http\Controllers\VitalController::class, 'add']);
         Route::post('/delete', [App\Http\Controllers\VitalController::class, 'delete']);
+        Route::get('/edit/{id}', [App\Http\Controllers\VitalController::class, 'edit']);
+        Route::post('/edit/{id}', [App\Http\Controllers\VitalController::class, 'edit']);
     });
 });
