@@ -55,6 +55,33 @@ class TenantController extends Controller
         return view('tenant.add');
     }
 
+
+
+    /**
+     * 入居者編集
+     */
+
+    public function edit(Request $request)
+    {
+        $tenants = Tenant::where('id', '=', $request->id)->first();
+        // POSTリクエストのとき
+        if ($request->isMethod('post')) {
+            // バリデーション
+            $this->validate($request, [
+                'name' => 'required|max:100',
+            ]);
+
+            // 入居者編集
+            $tenants->name = $request->name;
+            $tenants->save();
+
+            return redirect('/tenants');
+        }
+        
+        return view('tenant.edit', compact('tenants'));
+    }
+
+
     /**
      * 入居者削除
      */
