@@ -99,6 +99,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>名前</th>
+                                <th>  </th>
                                 <th>操作</th>
                             </tr>
                         </thead>
@@ -107,8 +108,16 @@
                                 <tr>
                                     <td>{{ $tenant->id }}</td>
                                     <td>
+                                        {{ $tenant->name }}
                                         <a href="{{ url('vitals/' . $tenant->id) }}">
-                                            {{ $tenant->name }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-default" href="{{ url('vitals/' . $tenant->id) }}">
+                                            バイタル
+                                        </a>
+                                        <a class="btn btn-default ms-1" href="{{ url('meals/' . $tenant->id) }}">
+                                            食事
                                         </a>
                                     </td>
                                     <td class="d-flex">
