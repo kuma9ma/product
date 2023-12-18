@@ -21,4 +21,12 @@ class Tenant extends Model
         {
             return $this->hasMany(Vital::class);
         }
+
+         /**
+        * Mealを保持するTenant(入居者)の取得
+        */
+        public function meals()
+        {
+            return $this->hasMany(Vital::class);
+        }
 }

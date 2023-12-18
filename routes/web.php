@@ -41,4 +41,12 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/edit/{id}', [App\Http\Controllers\VitalController::class, 'edit']);
         Route::post('/edit/{id}', [App\Http\Controllers\VitalController::class, 'edit']);
     });
+    Route::prefix('meals')->group(function () {
+        Route::get('/{id}', [App\Http\Controllers\MealController::class, 'index']);
+        Route::get('/add/{id}', [App\Http\Controllers\MealController::class, 'add']);
+        Route::post('/add/{id}', [App\Http\Controllers\MealController::class, 'add']);
+        Route::post('/delete', [App\Http\Controllers\MealController::class, 'delete']);
+        Route::get('/edit/{id}', [App\Http\Controllers\MealController::class, 'edit']);
+        Route::post('/edit/{id}', [App\Http\Controllers\MealController::class, 'edit']);
+    });
 });
