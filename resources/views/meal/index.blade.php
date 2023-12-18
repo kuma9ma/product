@@ -43,21 +43,23 @@
                                     <td>{{ $meal->morning_main }}</td>
                                     <td>{{ $meal->lunch_main }}</td>
                                     <td>{{ $meal->dinner_main }}</td>
-                                    <td class="d-flex">
+                                    <td>
                                         <a class="btn btn-primary" href="{{ url('meals/edit/' . $meal->id) }}">編集</a>
-                                        <form action="{{ url('meals/delete') }}" method="post"
-                                            onsubmit="return confirm('削除します。よろしいですか？')">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $meal->id }}">
-                                            <input type="submit" value="削除" class="mx-1 btn btn-danger">
-                                        </form>
                                     </td>
                                 </tr>
                                 <tr class=" border-bottom border-1">
                                     <td class="font-weight-bold">副</td>
                                     <td>{{ $meal->morning_side }}</td>
                                     <td>{{ $meal->lunch_side }}</td>
-                                    <td>{{ $meal->dinner_side  }}</td>
+                                    <td>{{ $meal->dinner_side }}</td>
+                                    <td>
+                                        <form action="{{ url('meals/delete') }}" method="post"
+                                            onsubmit="return confirm('削除します。よろしいですか？')">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $meal->id }}">
+                                            <input type="submit" value="削除" class="btn btn-danger">
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
