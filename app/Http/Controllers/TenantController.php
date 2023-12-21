@@ -13,10 +13,17 @@ class TenantController extends Controller
     /**
      * 入居者一覧
      */
-    public function index()
+    public function index(Request $request)
     {
         // 入居者一覧取得
-        $tenants = Tenant::all();
+        $keyword = $request->input('keyword');
+        if(!empty($keyword))
+        {   //検索表示
+            $tenants = Tenant::where('name', 'LIKE', "%{$keyword}%")->get();
+        } else {
+            //全件表示
+            $tenants = Tenant::all();
+        }
 
         $attentionVitals =
             Vital::where('kt', '>=', 37.5)

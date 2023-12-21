@@ -88,6 +88,10 @@
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
+                                <form action="{{ url('/tenants')}}" method="GET">
+                                    <input class="" type="text" name="keyword">
+                                    <button class="btn btn-default mx-3" type="submit">検索</button>
+                                    </form>
                                 <a href="{{ url('tenants/add') }}" class="btn btn-default">入居者登録</a>
                             </div>
                         </div>
@@ -99,6 +103,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>名前</th>
+                                <th>  </th>
                                 <th>  </th>
                                 <th>操作</th>
                             </tr>
@@ -118,6 +123,9 @@
                                         </a>
                                         <a class="btn btn-default ms-1" href="{{ url('meals/' . $tenant->id) }}">
                                             食事
+                                        </a>
+                                        <a class="btn btn-default ms-1" href="{{ url('waters/' . $tenant->id) }}">
+                                            水分
                                         </a>
                                     </td>
                                     <td class="d-flex">
