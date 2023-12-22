@@ -88,11 +88,11 @@
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
-                                <form action="{{ url('/tenants')}}" method="GET" class="form-inline">
+                                <form action="{{ url('/tenants') }}" method="GET" class="form-inline">
                                     <input class="form-control" type="text" name="keyword">
                                     <button class="btn btn-default mx-3" type="submit">名前検索</button>
                                 </form>
-                                <a href="{{ url('tenants/add') }}" class="btn btn-default">入居者登録</a>
+                                <a href="{{ url('tenants/add') }}" class="btn btn-default btn-create">入居者登録</a>
                             </div>
                         </div>
                     </div>
@@ -103,8 +103,8 @@
                             <tr>
                                 <th>ID</th>
                                 <th>名前</th>
-                                <th>  </th>
-                                <th>  </th>
+                                <th> </th>
+                                <th> </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -128,7 +128,8 @@
                                         </a>
                                     </td>
                                     <td class="d-flex">
-                                        <a class="btn btn-primary" href="{{ url('tenants/edit/' . $tenant->id)}}">入居者編集</a>
+                                        <a class="btn btn-primary"
+                                            href="{{ url('tenants/edit/' . $tenant->id) }}">入居者編集</a>
                                         <form action="{{ url('tenants/delete') }}" method="post"
                                             onsubmit="return confirm('削除します。よろしいですか？')">
                                             @csrf
@@ -148,6 +149,11 @@
 
 @section('css')
     <style>
+        .btn-create {
+            font-size: unset !important;
+            padding: 0.375rem 0.75rem !important;
+        }
+
         .accordion {
             display: none;
         }

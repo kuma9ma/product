@@ -21,20 +21,30 @@ class Meal extends Model
         'date',
     ];
 
-     /**
-        * 
-        */
-        public function tenant()
-        {
-            return $this->belongsTo(Tenant::class);
+
+    public function getDateAttribute($value)
+    {
+        if (empty($value)) {
+            return '';
         }
+        $date_time = new \DateTime($value);
+        return $date_time->format('Y/m/d');
+    }
+
+    /**
+     * 
+     */
+    public function tenant()
+    {
+        return $this->belongsTo(Tenant::class);
+    }
 
 
-      /**
-        * 食事のテーブルにあるユーザーID
-        */
-        public function user()
-        {
-            return $this->belongsTo(User::class);
-        }
+    /**
+     * 食事のテーブルにあるユーザーID
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
