@@ -21,14 +21,23 @@
                     </div>
                 </div>
                 <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap">
+                    <table class="text-center table table-hover text-nowrap">
                         <thead>
                             <tr>
                                 <th> </th>
-                                <th>朝</th>
-                                <th>昼</th>
-                                <th>夕</th>
+                                <th colspan="2">朝</th>
+                                <th colspan="2">昼</th>
+                                <th colspan="2">夕</th>
                                 <th> </th>
+                            </tr>
+                            <tr>
+                                <th> </th>
+                                <td class="font-weight-bold">主</td>
+                                <td class="font-weight-bold">副</td>
+                                <td class="font-weight-bold">主</td>
+                                <td class="font-weight-bold">副</td>
+                                <td class="font-weight-bold">主</td>
+                                <td class="font-weight-bold">副</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,22 +46,14 @@
                                     <td class="font-weight-bold">
                                         {{ $meal->date }}
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td class="font-weight-bold">主</td>
                                     <td>{{ $meal->morning_main }}</td>
-                                    <td>{{ $meal->lunch_main }}</td>
-                                    <td>{{ $meal->dinner_main }}</td>
-                                    <td>
-                                        <a class="btn btn-primary" href="{{ url('meals/edit/' . $meal->id) }}">編集</a>
-                                    </td>
-                                </tr>
-                                <tr class=" border-bottom border-1">
-                                    <td class="font-weight-bold">副</td>
                                     <td>{{ $meal->morning_side }}</td>
+                                    <td>{{ $meal->lunch_main }}</td>
                                     <td>{{ $meal->lunch_side }}</td>
+                                    <td>{{ $meal->dinner_main }}</td>
                                     <td>{{ $meal->dinner_side }}</td>
-                                    <td>
+                                    <td class="d-flex">
+                                        <a class="btn btn-primary mr-1" href="{{ url('meals/edit/' . $meal->id) }}">編集</a>
                                         <form action="{{ url('meals/delete') }}" method="post"
                                             onsubmit="return confirm('削除します。よろしいですか？')">
                                             @csrf
@@ -60,6 +61,9 @@
                                             <input type="submit" value="削除" class="btn btn-danger">
                                         </form>
                                     </td>
+                                </tr>
+                                <tr class=" border-bottom border-1">
+
                                 </tr>
                             @endforeach
                         </tbody>
