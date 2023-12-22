@@ -28,7 +28,7 @@
                                 <th>朝</th>
                                 <th>昼</th>
                                 <th>夕</th>
-                                <th>操作</th>
+                                <th> </th>
                             </tr>
                         </thead>
                         <tbody>

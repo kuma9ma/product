@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', '入居者一覧')
+@section('title', '水分摂取量一覧')
 
 @section('content_header')
     <h1>{{ $tenants->name }}</h1>
@@ -11,11 +11,11 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">バイタル一覧</h3>
+                    <h3 class="card-title">水分摂取量一覧</h3>
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
-                                <a href="{{ url('vitals/add/' . $tenants->id) }}"class="btn btn-default">バイタル登録</a>
+                                <a href="{{ url('waters/add/' . $tenants->id) }}"class="btn btn-default">追加</a>
                             </div>
                         </div>
                     </div>
@@ -25,31 +25,29 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>KT</th>
-                                <th>BP</th>
-                                <th>P</th>
-                                <th>SPO2</th>
-                                <th>日時</th>
+                                <th>水分種類</th>
+                                <th>水分量</th>
+                                <th>日付</th>
+                                <th>時間</th>
                                 <th>職員名</th>
                                 <th> </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                @foreach ($vitals as $vital)
-                                    <td>{{ $vital->id }}</td>
-                                    <td>{{ $vital->kt }}</td>
-                                    <td>{{ $vital->sbp }} / {{ $vital->dbp }}</td>
-                                    <td>{{ $vital->p }}</td>
-                                    <td>{{ $vital->spo2 }}</td>
-                                    <td>{{ $vital->created_at->format('y/m/d h:i') }}</td>
-                                    <td>{{ $vital->user->name }}</td>
+                                @foreach ($waters as $water)
+                                    <td>{{ $water->id }}</td>
+                                    <td>{{ $water->name }}</td>
+                                    <td>{{ $water->water }}cc</td>
+                                    <td>{{ $water->date }} </td>
+                                    <td>{{ $water->time }} </td>
+                                    <td>{{ $water->user->name }}</td>
                                     <td class="d-flex">
-                                        <a class="btn btn-primary" href="{{ url('vitals/edit/' . $vital->id)}}">編集</a>
-                                        <form action="{{ url('vitals/delete') }}" method="post"
+                                        <a class="btn btn-primary" href="{{ url('waters/edit/' . $water->id)}}">編集</a>
+                                        <form action="{{ url('waters/delete') }}" method="post"
                                             onsubmit="return confirm('削除します。よろしいですか？')">
                                             @csrf
-                                            <input type="hidden" name="id" value="{{ $vital->id }}">
+                                            <input type="hidden" name="id" value="{{ $water->id }}">
                                             <input type="submit" value="削除" class="mx-1 btn btn-danger">
                                         </form>
                                     </td>

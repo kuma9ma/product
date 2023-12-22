@@ -19,7 +19,6 @@ class Meal extends Model
         'dinner_main',
         'dinner_side',
         'date',
-        
     ];
 
      /**
