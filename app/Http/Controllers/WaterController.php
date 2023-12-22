@@ -57,8 +57,8 @@ class WaterController extends Controller
     public function edit(Request $request, $id)
     {
         //入居者名
-        $tenants = Tenant::where('id', '=', $request->id)->first();
         $waters = Water::where('id', '=', $request->id)->first();
+        $tenants = Tenant::where('id', '=', $waters->tenant_id)->first();
         // POSTリクエストのとき
         if ($request->isMethod('post')) {
             // バリデーション

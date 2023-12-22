@@ -20,14 +20,14 @@ class Water extends Model
 
 
      /**
-        * 食事のテーブルにあるユーザーID
+        * 水分のテーブルにあるユーザーID
         */
         public function user()
         {
             return $this->belongsTo(User::class);
         }
      /**
-        * 食事のテーブルにあるユーザーID
+        * 水分のテーブルにあるユーザーID
         */
         public function tenant()
         {

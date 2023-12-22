@@ -30,7 +30,7 @@
                                 <th>日付</th>
                                 <th>時間</th>
                                 <th>職員名</th>
-                                <th>操作</th>
+                                <th> </th>
                             </tr>
                         </thead>
                         <tbody>

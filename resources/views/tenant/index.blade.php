@@ -88,10 +88,10 @@
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
-                                <form action="{{ url('/tenants')}}" method="GET">
-                                    <input class="" type="text" name="keyword">
-                                    <button class="btn btn-default mx-3" type="submit">検索</button>
-                                    </form>
+                                <form action="{{ url('/tenants')}}" method="GET" class="form-inline">
+                                    <input class="form-control" type="text" name="keyword">
+                                    <button class="btn btn-default mx-3" type="submit">名前検索</button>
+                                </form>
                                 <a href="{{ url('tenants/add') }}" class="btn btn-default">入居者登録</a>
                             </div>
                         </div>
@@ -105,7 +105,6 @@
                                 <th>名前</th>
                                 <th>  </th>
                                 <th>  </th>
-                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -129,12 +128,12 @@
                                         </a>
                                     </td>
                                     <td class="d-flex">
-                                        <a class="btn btn-primary" href="{{ url('tenants/edit/' . $tenant->id)}}">編集</a>
+                                        <a class="btn btn-primary" href="{{ url('tenants/edit/' . $tenant->id)}}">入居者編集</a>
                                         <form action="{{ url('tenants/delete') }}" method="post"
                                             onsubmit="return confirm('削除します。よろしいですか？')">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $tenant->id }}">
-                                            <input type="submit" value="削除" class="mx-1 btn btn-danger">
+                                            <input type="submit" value="退所" class="mx-1 btn btn-danger">
                                         </form>
                                     </td>
                                 </tr>

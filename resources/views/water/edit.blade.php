@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', '水分量登録')
+@section('title', '水分量編集')
 
 @section('content_header')
-    {{-- <h1>{{ $tenants->name }}</h1> --}}
+    <h1>{{ $tenants->name }}</h1>
 @stop
 
 @section('content')
@@ -48,7 +48,7 @@
 
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">登録</button>
+                            <button type="submit" class="btn btn-primary">編集</button>
                         </div>
                 </form>
             </div>

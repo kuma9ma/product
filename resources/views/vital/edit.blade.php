@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'バイタル登録')
+@section('title', 'バイタル編集')
 
 @section('content_header')
-    <h1>バイタル登録</h1>
+    <h1>バイタル編集</h1>
 @stop
 
 @section('content')
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">登録</button>
+                        <button type="submit" class="btn btn-primary">編集</button>
                     </div>
                 </form>
             </div>
