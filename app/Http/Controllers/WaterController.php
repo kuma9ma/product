@@ -80,11 +80,13 @@ class WaterController extends Controller
     /**
      * 水分削除
      */
-    public function delete(Request $request)
+    public function delete(Request $request, $id)
     {
-        $water =  Water::find($request->id);
+        $water =  Water::find($id);
         $tenant_id = $water->tenant->id;
         $water->delete();
         return redirect('waters/' . $tenant_id);
     }
+
+
 }

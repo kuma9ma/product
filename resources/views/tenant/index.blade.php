@@ -192,7 +192,7 @@
             //クリックで動く
             $('#accordion').click(function() {
                 $('.accordion').toggleClass('active');
-
+                $('#accordion').toggleClass('active');
             });
         });
     </script>

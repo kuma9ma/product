@@ -44,6 +44,14 @@
                             <label for="spo2">SPO2(血中酸素濃度)</label>
                             <input type="text" class="form-control" id="spo2" name="spo2" placeholder="99">
                         </div>
+                        <div class="form-group">
+                            <label for="date">日付</label>
+                            <input type="date" class="form-control" id="date" name="date" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="time">時間</label>
+                            <input type="time" class="form-control" id="time" name="time" placeholder="">
+                        </div>
                     </div>
 
                     <div class="card-footer">

@@ -29,7 +29,8 @@
                                 <th>BP</th>
                                 <th>P</th>
                                 <th>SPO2</th>
-                                <th>日時</th>
+                                <th>日付</th>
+                                <th>時間</th>
                                 <th>職員名</th>
                                 <th> </th>
                             </tr>
@@ -42,16 +43,16 @@
                                     <td>{{ $vital->sbp }} / {{ $vital->dbp }}</td>
                                     <td>{{ $vital->p }}</td>
                                     <td>{{ $vital->spo2 }}</td>
-                                    <td>{{ $vital->created_at->format('y/m/d h:i') }}</td>
+                                    <td>{{ $vital->date}}</td>
+                                    <td>{{ $vital->time}}</td>
                                     <td>{{ $vital->user->name }}</td>
                                     <td class="d-flex">
-                                        <a class="btn btn-primary" href="{{ url('vitals/edit/' . $vital->id)}}">編集</a>
-                                        <form action="{{ url('vitals/delete') }}" method="post"
-                                            onsubmit="return confirm('削除します。よろしいですか？')">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $vital->id }}">
-                                            <input type="submit" value="削除" class="mx-1 btn btn-danger">
-                                        </form>
+                                        <a class="btn btn-primary" href="{{ url('vitals/edit/' . $vital->id) }}">編集</a>
+                                        <a class="btn btn-danger ml-1" href="javascript:void(0);"
+                                            onclick=" var ok=confirm('削除します。よろしいですか？');
+                                            if (ok) location.href='/vitals/delete/{{ $vital->id }}'; return false; ">
+                                            削除
+                                        </a>
                                     </td>
                             </tr>
                             @endforeach

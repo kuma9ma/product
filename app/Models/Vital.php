@@ -17,6 +17,8 @@ class Vital extends Model
         'dbp',
         'p',
         'spo2',
+        'date',
+        'time',
     ];
 
      /**

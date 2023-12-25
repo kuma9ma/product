@@ -33,7 +33,7 @@
                             <label for="water">水分量</label>
                             <p><span class="current-val"></span>cc</p>
                             <input type="range" min="0" max="300" step="10" value="{{ $waters->water }}"
-                            class="form-control range" name="water">
+                                class="form-control range" name="water">
                         </div>
 
 
@@ -43,12 +43,17 @@
                         </div>
                         <div class="form-group">
                             <label for="time">時間</label>
-                            <input type="time" class="form-control" name="time" value="{{ $waters->time }}" >
+                            <input type="time" class="form-control" name="time" value="{{ $waters->time }}">
                         </div>
 
 
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">編集</button>
+                            <a class="btn btn-danger ml-1" href="javascript:void(0);"
+                                onclick=" var ok=confirm('削除します。よろしいですか？');
+                                if (ok) location.href='/waters/delete/{{ $waters->id }}'; return false; ">
+                                削除
+                            </a>
                         </div>
                 </form>
             </div>
