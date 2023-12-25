@@ -44,12 +44,11 @@
                                     <td>{{ $water->user->name }}</td>
                                     <td class="d-flex">
                                         <a class="btn btn-primary" href="{{ url('waters/edit/' . $water->id)}}">編集</a>
-                                        <form action="{{ url('waters/delete') }}" method="post"
-                                            onsubmit="return confirm('削除します。よろしいですか？')">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $water->id }}">
-                                            <input type="submit" value="削除" class="mx-1 btn btn-danger">
-                                        </form>
+                                        <a class="btn btn-danger ml-1" href="javascript:void(0);"
+                                        onclick=" var ok=confirm('削除します。よろしいですか？');
+                                        if (ok) location.href='/waters/delete/{{ $water->id }}'; return false; ">
+                                        削除
+                                    </a>
                                     </td>
                             </tr>
                             @endforeach

@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/{id}', [App\Http\Controllers\VitalController::class, 'index']);
         Route::get('/add/{id}', [App\Http\Controllers\VitalController::class, 'add']);
         Route::post('/add/{id}', [App\Http\Controllers\VitalController::class, 'add']);
-        Route::post('/delete', [App\Http\Controllers\VitalController::class, 'delete']);
+        Route::get('/delete/{id}', [App\Http\Controllers\VitalController::class, 'delete']);
         Route::get('/edit/{id}', [App\Http\Controllers\VitalController::class, 'edit']);
         Route::post('/edit/{id}', [App\Http\Controllers\VitalController::class, 'edit']);
     });
@@ -46,7 +46,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/{id}', [App\Http\Controllers\MealController::class, 'index']);
         Route::get('/add/{id}', [App\Http\Controllers\MealController::class, 'add']);
         Route::post('/add/{id}', [App\Http\Controllers\MealController::class, 'add']);
-        Route::post('/delete', [App\Http\Controllers\MealController::class, 'delete']);
+        Route::post('/delete/{id}', [App\Http\Controllers\MealController::class, 'delete']);
         Route::get('/edit/{id}', [App\Http\Controllers\MealController::class, 'edit']);
         Route::post('/edit/{id}', [App\Http\Controllers\MealController::class, 'edit']);
     });
@@ -55,7 +55,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/{id}', [App\Http\Controllers\WaterController::class, 'index']);
         Route::get('/add/{id}', [App\Http\Controllers\WaterController::class, 'add']);
         Route::post('/add/{id}', [App\Http\Controllers\WaterController::class, 'add']);
-        Route::post('/delete', [App\Http\Controllers\WaterController::class, 'delete']);
+        Route::get('/delete/{id}', [App\Http\Controllers\WaterController::class, 'delete']);
         Route::get('/edit/{id}', [App\Http\Controllers\WaterController::class, 'edit']);
         Route::post('/edit/{id}', [App\Http\Controllers\WaterController::class, 'edit']);
     });

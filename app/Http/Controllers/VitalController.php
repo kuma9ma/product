@@ -42,6 +42,8 @@ class VitalController extends Controller
                 'dbp' => $request->dbp,
                 'p' => $request->p,
                 'spo2' => $request->spo2,
+                'date' => $request->date,
+                'time' => $request->time,
             ]);
 
 
@@ -71,6 +73,8 @@ class VitalController extends Controller
              $vitals->dbp = $request->dbp;
              $vitals->p = $request->p;
              $vitals->spo2= $request->spo2;
+             $vitals->date= $request->date;
+             $vitals->time= $request->time;
              $vitals->save();
  
              return redirect('vitals/'.$vitals->tenant_id);
@@ -82,8 +86,8 @@ class VitalController extends Controller
     /**
      * バイタル削除
      */
-    public function delete(Request $request){
-        $vital =  Vital::find($request->id);
+    public function delete(Request $request, $id){
+        $vital =  Vital::find($id);
         $tenant_id = $vital->tenant->id;
         $vital->delete();
         return redirect('vitals/'.$tenant_id);
