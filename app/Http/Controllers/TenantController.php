@@ -17,8 +17,7 @@ class TenantController extends Controller
     {
         // 入居者一覧取得
         $keyword = $request->input('keyword');
-        if(!empty($keyword))
-        {   //検索表示
+        if (!empty($keyword)) {   //検索表示
             $tenants = Tenant::where('name', 'LIKE', "%{$keyword}%")->get();
         } else {
             //全件表示
@@ -71,21 +70,27 @@ class TenantController extends Controller
     public function edit(Request $request)
     {
         $tenants = Tenant::where('id', '=', $request->id)->first();
-        // POSTリクエストのとき
-        if ($request->isMethod('post')) {
-            // バリデーション
-            $this->validate($request, [
-                'name' => 'required|max:100',
-            ]);
+        //管理者権限があるとき
+        if (Auth::user()->role_id === 1) {
 
-            // 入居者編集
-            $tenants->name = $request->name;
-            $tenants->save();
+            // POSTリクエストのとき
+            if ($request->isMethod('post')) {
+                // バリデーション
+                $this->validate($request, [
+                    'name' => 'required|max:100',
+                ]);
 
-            return redirect('/tenants');
+                // 入居者編集
+                $tenants->name = $request->name;
+                $tenants->save();
+
+                return redirect('/tenants');
+            }
+            return view('tenant.edit', compact('tenants'));
         }
-        
-        return view('tenant.edit', compact('tenants'));
+
+
+        return redirect('/tenants');
     }
 
 
