@@ -10,7 +10,7 @@ use App\Models\Water;
 class WaterController extends Controller
 {
     /**
-     * 水分一覧表示
+     * 水分摂取量一覧表示
      */
     public function index(Request $request)
     {
@@ -18,12 +18,11 @@ class WaterController extends Controller
         $waters = Water::where('tenant_id', '=', $request->id)->get();
         $tenants = Tenant::where('id', '=', $request->id)->first();
 
-
         return view('water.index', compact('waters', 'tenants'));
     }
 
     /**
-     * 水分登録
+     * 水分摂取量登録
      */
     public function add(Request $request, $id)
     {
@@ -33,7 +32,7 @@ class WaterController extends Controller
         if ($request->isMethod('post')) {
             // バリデーション
             $this->validate($request, []);
-            // 水分登録
+            // 水分摂取量登録
             Water::create([
                 'user_id' => Auth::user()->id,
                 'tenant_id' => $request->id,
@@ -51,9 +50,8 @@ class WaterController extends Controller
     }
 
     /**
-     * 水分編集
+     * 水分摂取量編集
      */
-
     public function edit(Request $request, $id)
     {
         //入居者名
@@ -64,7 +62,7 @@ class WaterController extends Controller
             // バリデーション
             $this->validate($request, []);
 
-            // 水分編集
+            // 水分摂取量編集
             $waters->kt = $request->name;
             $waters->sbp = $request->water;
             $waters->dbp = $request->date;
@@ -78,7 +76,7 @@ class WaterController extends Controller
     }
 
     /**
-     * 水分削除
+     * 水分摂取量削除
      */
     public function delete(Request $request, $id)
     {

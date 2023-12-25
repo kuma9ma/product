@@ -17,7 +17,6 @@ class VitalController extends Controller
         // バイタル一覧取得
         $vitals = Vital::where('tenant_id', '=', $request->id)->get();
         $tenants = Tenant::where('id', '=', $request->id)->first();
-        
 
         return view('vital.index', compact('vitals','tenants'));
     }
@@ -31,7 +30,7 @@ class VitalController extends Controller
         if ($request->isMethod('post')) {
             // バリデーション
             $this->validate($request, [
-                
+
             ]);
             // バイタル登録
             Vital::create([
@@ -64,9 +63,9 @@ class VitalController extends Controller
          if ($request->isMethod('post')) {
              // バリデーション
              $this->validate($request, [
-    
+
              ]);
- 
+
              // バイタル編集
              $vitals->kt = $request->kt;
              $vitals->sbp = $request->sbp;
@@ -76,10 +75,10 @@ class VitalController extends Controller
              $vitals->date= $request->date;
              $vitals->time= $request->time;
              $vitals->save();
- 
+
              return redirect('vitals/'.$vitals->tenant_id);
          }
-         
+
          return view('vital.edit', compact('vitals'), ['id'=>$id]);
      }
 
