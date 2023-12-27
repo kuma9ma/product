@@ -15,7 +15,7 @@
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
-                                <a href="{{ url('meals/add/' . $tenants->id) }}"class="btn btn-default">登録</a>
+                                <a href="{{ url('meals/add/' . $tenants->id) }}"class="btn btn-default">食事量登録</a>
                             </div>
                         </div>
                     </div>
@@ -28,6 +28,7 @@
                                 <th colspan="2">朝</th>
                                 <th colspan="2">昼</th>
                                 <th colspan="2">夕</th>
+                                <th>職員名</th>
                                 <th> </th>
                             </tr>
                             <tr>
@@ -52,6 +53,7 @@
                                     <td>{{ $meal->lunch_side }}</td>
                                     <td>{{ $meal->dinner_main }}</td>
                                     <td>{{ $meal->dinner_side }}</td>
+                                    <td>{{ $meal->user->name }}</td>
                                     <td class="d-flex">
                                         <a class="btn btn-primary mr-1" href="{{ url('meals/edit/' . $meal->id) }}">編集</a>
                                         <form action="{{ url('meals/delete') }}" method="post"

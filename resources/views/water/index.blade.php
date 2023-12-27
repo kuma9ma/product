@@ -15,7 +15,7 @@
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
-                                <a href="{{ url('waters/add/' . $tenants->id) }}"class="btn btn-default">追加</a>
+                                <a href="{{ url('waters/add/' . $tenants->id) }}"class="btn btn-default">水分量登録</a>
                             </div>
                         </div>
                     </div>
