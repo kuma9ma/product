@@ -66,7 +66,7 @@ class WaterController extends Controller
         if ($request->isMethod('post')) {
             // バリデーション
             $this->validate($request, [
-                'name' => 'required'|'100',
+                'name' => 'required',
                 'water' => 'required',
                 'date' => 'required',
                 'time' => 'required',
