@@ -63,7 +63,8 @@ class VitalController extends Controller
          if ($request->isMethod('post')) {
              // バリデーション
              $this->validate($request, [
-
+                'date' => 'required',
+                'time' => 'required',
              ]);
 
              // バイタル編集

@@ -26,7 +26,9 @@ class MealController extends Controller
         // POSTリクエストのとき
         if ($request->isMethod('post')) {
             // バリデーション
-            $this->validate($request, []);
+            $this->validate($request, [
+                'date' => 'required',
+            ]);
 
             // 食事摂取量登録
             Meal::create([

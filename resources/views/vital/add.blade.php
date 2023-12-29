@@ -46,11 +46,11 @@
                         </div>
                         <div class="form-group">
                             <label for="date">日付</label>
-                            <input type="date" class="form-control" id="date" name="date" placeholder="">
+                            <input type="date" class="form-control" id="date" name="date" value="{{ now()->format('Y-m-d')}}">
                         </div>
                         <div class="form-group">
                             <label for="time">時間</label>
-                            <input type="time" class="form-control" id="time" name="time" placeholder="">
+                            <input type="time" class="form-control" id="time" name="time" value="{{ now()->format('h:i')}}">
                         </div>
                     </div>
 
