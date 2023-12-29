@@ -32,7 +32,7 @@ class WaterController extends Controller
         if ($request->isMethod('post')) {
             // バリデーション
             $this->validate($request, [
-                'name' => 'required'|'100',
+                'name' => 'required',
                 'water' => 'required',
                 'date' => 'required',
                 'time' => 'required',
@@ -65,7 +65,12 @@ class WaterController extends Controller
         // POSTリクエストのとき
         if ($request->isMethod('post')) {
             // バリデーション
-            $this->validate($request, []);
+            $this->validate($request, [
+                'name' => 'required'|'100',
+                'water' => 'required',
+                'date' => 'required',
+                'time' => 'required',
+            ]);
 
             // 水分摂取量編集
             $waters->kt = $request->name;

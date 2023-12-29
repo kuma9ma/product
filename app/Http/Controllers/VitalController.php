@@ -30,7 +30,9 @@ class VitalController extends Controller
         if ($request->isMethod('post')) {
             // バリデーション
             $this->validate($request, [
-
+                'kt' => 'required_without_all:sbp,dbp,p,spo2',
+                'date' => 'required',
+                'time' => 'required',
             ]);
             // バイタル登録
             Vital::create([
@@ -63,6 +65,7 @@ class VitalController extends Controller
          if ($request->isMethod('post')) {
              // バリデーション
              $this->validate($request, [
+                'kt' => 'required_without_all:sbp,dbp,p,spo2',
                 'date' => 'required',
                 'time' => 'required',
              ]);
