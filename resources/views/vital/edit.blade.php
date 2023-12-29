@@ -26,27 +26,27 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="kt">KT(体温)</label>
-                            <input type="text" class="form-control" id="kt" name="kt"
+                            <input type="text" class="form-control" id="kt" name="kt" pattern="^([1-9]\d*|0)(\.\d+)?$"
                                 value="{{ $vitals->kt }}">
                         </div>
                         <div class="form-group">
                             <label for="sbp">SBP(収縮期血圧)</label>
-                            <input type="text" class="form-control" id="sbp" name="sbp"
+                            <input type="text" pattern="^[1-9][0-9]*$" class="form-control" id="sbp" name="sbp"
                                 value="{{ $vitals->sbp }}">
                         </div>
                         <div class="form-group">
                             <label for="dbp">DBP(拡張期血圧)</label>
-                            <input type="text" class="form-control" id="dbp" name="dbp"
+                            <input type="text" pattern="^[1-9][0-9]*$" class="form-control" id="dbp" name="dbp"
                                 value="{{ $vitals->dbp }}">
                         </div>
                         <div class="form-group">
                             <label for="p">P(脈拍)</label>
-                            <input type="text" class="form-control" id="p" name="p"
+                            <input type="text" pattern="^[1-9][0-9]*$" class="form-control" id="p" name="p"
                                 value="{{ $vitals->p }}">
                         </div>
                         <div class="form-group">
                             <label for="spo2">SPO2(血中酸素濃度)</label>
-                            <input type="text" class="form-control" id="spo2" name="spo2"
+                            <input type="text" pattern="^[1-9][0-9]*$" class="form-control" id="spo2" name="spo2"
                                 value="{{ $vitals->spo2 }}">
                         </div>
                         <div class="form-group">
