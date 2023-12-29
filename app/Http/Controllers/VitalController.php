@@ -17,7 +17,6 @@ class VitalController extends Controller
         // バイタル一覧取得
         $vitals = Vital::where('tenant_id', '=', $request->id)->get();
         $tenants = Tenant::where('id', '=', $request->id)->first();
-
         return view('vital.index', compact('vitals','tenants'));
     }
 

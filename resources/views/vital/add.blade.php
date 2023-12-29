@@ -26,23 +26,23 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="kt">KT(体温)</label>
-                            <input type="text" class="form-control" id="kt" name="kt" placeholder="36.5">
+                            <input type="text" pattern="^([1-9]\d*|0)(\.\d+)?$" class="form-control" id="kt" name="kt" placeholder="36.5">
                         </div>
                         <div class="form-group">
                             <label for="sbp">SBP(収縮期血圧)</label>
-                            <input type="text" class="form-control" id="sbp" name="sbp" placeholder="125">
+                            <input type="text" pattern="^[1-9][0-9]*$" class="form-control" id="sbp" name="sbp" placeholder="125">
                         </div>
                         <div class="form-group">
                             <label for="dbp">DBP(拡張期血圧)</label>
-                            <input type="text" class="form-control" id="dbp" name="dbp" placeholder="75">
+                            <input type="text" pattern="^[1-9][0-9]*$" class="form-control" id="dbp" name="dbp" placeholder="75">
                         </div>
                         <div class="form-group">
                             <label for="p">P(脈拍)</label>
-                            <input type="text" class="form-control" id="p" name="p" placeholder="65">
+                            <input type="text" pattern="^[1-9][0-9]*$" class="form-control" id="p" name="p" placeholder="65">
                         </div>
                         <div class="form-group">
                             <label for="spo2">SPO2(血中酸素濃度)</label>
-                            <input type="text" class="form-control" id="spo2" name="spo2" placeholder="99">
+                            <input type="text" pattern="^[1-9][0-9]*$" class="form-control" id="spo2" name="spo2" placeholder="99">
                         </div>
                         <div class="form-group">
                             <label for="date">日付</label>

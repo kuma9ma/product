@@ -29,7 +29,6 @@
                                     <th>P</th>
                                     <th>SPO2</th>
                                     <th>日時</th>
-                                    <th>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,14 +61,6 @@
                                             <td>{{ $attentionVital->spo2 }}</td>
                                         @endif
                                         <td>{{ $attentionVital->created_at->format('m/d h:i') }}</td>
-                                        <td>
-                                            <form action="{{ url('vitals/delete') }}" method="post"
-                                                onsubmit="return confirm('削除します。よろしいですか？')">
-                                                @csrf
-                                                <input type="hidden" name="id" value="{{ $attentionVital->id }}">
-                                                <input type="submit" value="削除" class="btn btn-danger">
-                                            </form>
-                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -92,8 +83,8 @@
                                     <input class="form-control" type="text" name="keyword">
                                     <button class="btn btn-default mx-3" type="submit">名前検索</button>
                                 </form>
-                                @if(Auth::user()->role_id === 1)
-                                <a href="{{ url('tenants/add') }}" class="btn btn-default btn-create">入居者登録</a>
+                                @if (Auth::user()->role_id === 1)
+                                    <a href="{{ url('tenants/add') }}" class="btn btn-default btn-create">入居者登録</a>
                                 @endif
                             </div>
                         </div>
@@ -130,15 +121,15 @@
                                         </a>
                                     </td>
                                     <td class="d-flex">
-                                        @if(Auth::user()->role_id === 1)
-                                        <a class="btn btn-primary"
-                                            href="{{ url('tenants/edit/' . $tenant->id) }}">入居者編集</a>
-                                        <form action="{{ url('tenants/delete') }}" method="post"
-                                            onsubmit="return confirm('削除します。よろしいですか？')">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $tenant->id }}">
-                                            <input type="submit" value="退所" class="mx-1 btn btn-danger">
-                                        </form>
+                                        @if (Auth::user()->role_id === 1)
+                                            <a class="btn btn-primary"
+                                                href="{{ url('tenants/edit/' . $tenant->id) }}">入居者編集</a>
+                                            <form action="{{ url('tenants/delete') }}" method="post"
+                                                onsubmit="return confirm('削除します。よろしいですか？')">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $tenant->id }}">
+                                                <input type="submit" value="退所" class="mx-1 btn btn-danger">
+                                            </form>
                                         @endif
                                     </td>
                                 </tr>

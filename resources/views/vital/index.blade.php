@@ -39,12 +39,16 @@
                             <tr>
                                 @foreach ($vitals as $vital)
                                     <td>{{ $vital->id }}</td>
-                                    <td>{{ $vital->kt }}</td>
+                                    <td>
+                                        @if ($vital->kt !== null)
+                                            {{ number_format($vital->kt, 1) }}
+                                        @endif
+                                    </td>
                                     <td>{{ $vital->sbp }} / {{ $vital->dbp }}</td>
                                     <td>{{ $vital->p }}</td>
                                     <td>{{ $vital->spo2 }}</td>
-                                    <td>{{ $vital->date}}</td>
-                                    <td>{{ $vital->time}}</td>
+                                    <td>{{ $vital->date }}</td>
+                                    <td>{{ $vital->time }}</td>
                                     <td>{{ $vital->user->name }}</td>
                                     <td class="d-flex">
                                         <a class="btn btn-primary" href="{{ url('vitals/edit/' . $vital->id) }}">編集</a>
