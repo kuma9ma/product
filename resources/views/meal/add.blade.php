@@ -79,7 +79,7 @@
 
                         <div class="form-group">
                             <label for="date">日付</label>
-                            <input type="date" class="form-control" name="date">
+                            <input type="date" class="form-control" name="date" value="{{ now()->format('Y-m-d')}}">
                         </div>
 
 

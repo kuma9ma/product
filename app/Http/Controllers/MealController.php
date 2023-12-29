@@ -26,7 +26,9 @@ class MealController extends Controller
         // POSTリクエストのとき
         if ($request->isMethod('post')) {
             // バリデーション
-            $this->validate($request, []);
+            $this->validate($request, [
+                'date' => 'required',
+            ]);
 
             // 食事摂取量登録
             Meal::create([
@@ -57,7 +59,10 @@ class MealController extends Controller
         // POSTリクエストのとき
         if ($request->isMethod('post')) {
             // バリデーション
-            $this->validate($request, []);
+            $this->validate($request, [
+                'morning_main' => 'required_without_all:morning_side,lunch_main,lunch_side,dinner_main,dinner_side',
+                'date' => 'required',
+            ]);
 
             // 編集
             $meals->morning_main = $request->morning_main;

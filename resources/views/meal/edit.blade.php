@@ -36,7 +36,7 @@
                         <div class="form-group">
                             <label for="morning_side">おかず</label>
                             <p><span class="m-current-val-side"></span>割</p>
-                            <input type="range" min="0" max="10" step="1" value="{{$meals->mornin_side}}"
+                            <input type="range" min="0" max="10" step="1" value="{{$meals->morning_side}}"
                                 class="form-control m-range-side" name="morning_side">
                         </div>
 
