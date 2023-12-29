@@ -22,14 +22,14 @@ class Meal extends Model
     ];
 
 
-    public function getDateAttribute($value)
-    {
-        if (empty($value)) {
-            return '';
-        }
-        $date_time = new \DateTime($value);
-        return $date_time->format('Y/m/d');
-    }
+    // public function getDateAttribute($value)
+    // {
+    //     if (empty($value)) {
+    //         return '';
+    //     }
+    //     $date_time = new \DateTime($value);
+    //     return $date_time->format('Y/m/d');
+    // }
 
     /**
      * 
