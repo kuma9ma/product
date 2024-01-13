@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', '入居者管理システム')
 
 @section('content_header')
     <h1>入居者管理</h1>
