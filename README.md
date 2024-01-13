@@ -12,11 +12,11 @@
 - バイタル異常値の入居者を一覧ページに表示する機能
 
 ## 開発環境
-``````
+```
 PHP 8.2.11
 Laravel Framework 10.13.5
 MySQL 5.7.34
-``````
+```
 
 ## 設計書
 [設計書ページへ](https://drive.google.com/drive/folders/1iTAkeUZfGoHnmWv0GeD7rXFjsW8xkYS0)
@@ -25,7 +25,15 @@ MySQL 5.7.34
 [アプリケーションページへ](https://app-product-03fd0435131c.herokuapp.com/)
 
 ### テストアカウント情報
-```
-メールアドレス : admin@techis.jp
-パスワード : admin123
-```
+
+メールアドレス
+
+``
+admin@techis.jp
+``
+
+パスワード
+
+``
+admin123
+``
