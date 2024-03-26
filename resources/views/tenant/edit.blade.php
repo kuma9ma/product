@@ -26,6 +26,15 @@
                         <div class="form-group">
                             <label for="name">名前</label>
                             <input type="text" class="form-control" id="name" name="name" value="{{$tenants->name }}">
+                            <label for="name">年齢</label>
+                            <input type="number" class="form-control" id="age" name="age" value="{{$tenants->age }}" />
+                            <label for="name">生年月日</label>
+                            <input type="date" class="form-control" id="birth" name="birth" value="{{$tenants->birth }}" />
+                            <label for="name">住所</label>
+                            <input type="text" class="form-control" id="address" name="address" value="{{$tenants->address }}" />
+                            <label for="name">電話番号</label>
+                            <input type="tel" class="form-control" id="tel" name="tel" value="{{$tenants->tel }}" />
+                        </div>
                         </div>
                     </div>
 

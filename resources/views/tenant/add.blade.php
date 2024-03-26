@@ -12,9 +12,9 @@
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
-                       @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                       @endforeach
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
                     </ul>
                 </div>
             @endif
@@ -25,7 +25,15 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name">名前</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="名前">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="名前" />
+                            <label for="name">年齢</label>
+                            <input type="number" class="form-control" id="age" name="age" placeholder="年齢" />
+                            <label for="name">生年月日</label>
+                            <input type="date" class="form-control" id="birth" name="birth" placeholder="生年月日" />
+                            <label for="name">住所</label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="住所" />
+                            <label for="name">電話番号</label>
+                            <input type="tel" class="form-control" id="tel" name="tel" placeholder="電話番号" />
                         </div>
                     </div>
 

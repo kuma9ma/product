@@ -11,11 +11,19 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">食事量一覧</h3>
+                    <h3 class="card-title">食事摂取量一覧</h3>
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
-                                <a href="{{ url('meals/add/' . $tenants->id) }}"class="btn btn-default">食事量登録</a>
+                                <a href="{{ url('meals/add/' . $tenants->id) }}"class="btn btn-default">
+                                    食事量登録
+                                </a>
+                                <a class="meal btn btn-default ms-1" href="{{ url('vitals/' . $tenants->id) }}">
+                                    バイタル一覧へ
+                                </a>
+                                <a class="water btn btn-default ms-1" href="{{ url('waters/' . $tenants->id) }}">
+                                    水分一覧へ
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -44,9 +52,7 @@
                         <tbody>
                             @foreach ($meals as $meal)
                                 <tr>
-                                    <td class="font-weight-bold">
-                                        {{ $meal->date }}
-                                    </td>
+                                    <td>{{ $meal->date }}</td>
                                     <td>{{ $meal->morning_main }}</td>
                                     <td>{{ $meal->morning_side }}</td>
                                     <td>{{ $meal->lunch_main }}</td>
