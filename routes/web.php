@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::post('/delete', [App\Http\Controllers\TenantController::class, 'delete']);
         Route::get('/edit/{id}', [App\Http\Controllers\TenantController::class, 'edit']);
         Route::post('/edit/{id}', [App\Http\Controllers\TenantController::class, 'edit']);
+        Route::get('/detail/{id}', [App\Http\Controllers\TenantController::class, 'detail']);
     });
 
 //Vitals(バイタル)

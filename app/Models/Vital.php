@@ -22,7 +22,7 @@ class Vital extends Model
     ];
 
      /**
-        * 
+        * バイタルのテーブルにある入居者ID
         */
         public function tenant()
         {

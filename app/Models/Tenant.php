@@ -12,21 +12,25 @@ class Tenant extends Model
     protected $fillable = [
         'user_id',
         'name',
+        'age',
+        'birth',
+        'address',
+        'tel',
     ];
 
-      /**
-        * Vitalを保持するTenant(入居者)の取得
-        */
-        public function vitals()
-        {
-            return $this->hasMany(Vital::class);
-        }
+    /**
+     * Vitalを保持するTenant(入居者)の取得
+     */
+    public function vitals()
+    {
+        return $this->hasMany(Vital::class);
+    }
 
-         /**
-        * Mealを保持するTenant(入居者)の取得
-        */
-        public function meals()
-        {
-            return $this->hasMany(Vital::class);
-        }
+    /**
+     * Mealを保持するTenant(入居者)の取得
+     */
+    public function meals()
+    {
+        return $this->hasMany(Vital::class);
+    }
 }

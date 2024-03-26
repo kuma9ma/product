@@ -112,8 +112,8 @@
                                 <tr>
                                     <td>{{ $tenant->id }}</td>
                                     <td>
-                                        {{ $tenant->name }}
-                                        <a href="{{ url('vitals/' . $tenant->id) }}">
+                                        <a href="{{ url('tenants/detail/' . $tenant->id) }}">
+                                            {{ $tenant->name }}
                                         </a>
                                     </td>
                                     <td>

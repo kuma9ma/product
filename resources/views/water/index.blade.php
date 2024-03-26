@@ -15,7 +15,15 @@
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
-                                <a href="{{ url('waters/add/' . $tenants->id) }}"class="btn btn-default">水分量登録</a>
+                                <a href="{{ url('waters/add/' . $tenants->id) }}"class="btn btn-default">
+                                    水分量登録
+                                </a>
+                                <a class="water btn btn-default ms-1" href="{{ url('vitals/' . $tenants->id) }}">
+                                    バイタル一覧へ
+                                </a>
+                                <a class="meal btn btn-default ms-1" href="{{ url('meals/' . $tenants->id) }}">
+                                    食事一覧へ
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -24,11 +32,9 @@
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th> </th>
                                 <th>水分種類</th>
                                 <th>水分量</th>
-                                <th>日付</th>
-                                <th>時間</th>
                                 <th>職員名</th>
                                 <th> </th>
                             </tr>
@@ -36,19 +42,17 @@
                         <tbody>
                             <tr>
                                 @foreach ($waters as $water)
-                                    <td>{{ $water->id }}</td>
+                                    <td>{{ $water->date }} / {{ $water->time }}</td>
                                     <td>{{ $water->name }}</td>
                                     <td>{{ $water->water }}cc</td>
-                                    <td>{{ $water->date }} </td>
-                                    <td>{{ $water->time }} </td>
                                     <td>{{ $water->user->name }}</td>
                                     <td class="d-flex">
-                                        <a class="btn btn-primary" href="{{ url('waters/edit/' . $water->id)}}">編集</a>
+                                        <a class="btn btn-primary" href="{{ url('waters/edit/' . $water->id) }}">編集</a>
                                         <a class="btn btn-danger ml-1" href="javascript:void(0);"
-                                        onclick=" var ok=confirm('削除します。よろしいですか？');
+                                            onclick=" var ok=confirm('削除します。よろしいですか？');
                                         if (ok) location.href='/waters/delete/{{ $water->id }}'; return false; ">
-                                        削除
-                                    </a>
+                                            削除
+                                        </a>
                                     </td>
                             </tr>
                             @endforeach
