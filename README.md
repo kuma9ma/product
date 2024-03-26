@@ -1,43 +1,39 @@
-## 商品管理システム
+# 入居者管理システム
 
-### 環境構築手順
+## 概要
+このシステムは、高齢者入所施設における、入居者の管理を行うシステムです。バイタル数値、食事量、水分量などを管理することができます。
 
-* Gitクローン
-* .env.example をコピーして .env を作成
-* MySQLのデータベース作成（名前：item_management）
-* Macの場合 .env の DB_PASSWORD を root に修正（Windowsは修正不要）
+## 主な機能
+- ログイン・ログアウト機能
+- 入居者一覧・登録・削除・編集・名前検索機能(登録・削除・編集は管理者のみ)
+- バイタル一覧・登録・削除・編集機能
+- 食事量一覧・登録・削除・編集機能
+- 水分量一覧・登録・削除・編集機能
+- バイタル異常値の入居者を一覧ページに表示する機能
 
-    ```INI
-    DB_PASSWORD=root
-    ```
+## 開発環境
+```
+PHP 8.2.11
+Laravel Framework 10.13.5
+MySQL 5.7.34
+```
 
-* APP_KEY生成
+## 設計書
+[設計書ページへ](https://drive.google.com/drive/folders/1iTAkeUZfGoHnmWv0GeD7rXFjsW8xkYS0)
 
-    ```console
-    php artisan key:generate
-    ```
+## システム閲覧
+[アプリケーションページへ](https://app-product-03fd0435131c.herokuapp.com/)
 
-* Composerインストール
+### テストアカウント情報
 
-    ```console
-    composer install
-    ```
+メールアドレス
 
-* フロント環境構築
+```
+admin@techis.jp
+```
 
-    ```console
-    npm ci
-    npm run build
-    ```
+パスワード
 
-* マイグレーション
-
-    ```console
-    php artisan migrate
-    ```
-
-* 起動
-
-    ```console
-    php artisan serve
-    ```
+```
+admin123
+```
