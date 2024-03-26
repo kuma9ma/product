@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <div>
+    <div class="container border  p-3 mt-5">
 
 
         <dl>
