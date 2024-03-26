@@ -14,11 +14,11 @@
                     @if (count($attentionVitals) > 0)
                         <h3 class="card-title">要観察者</h3>
                     @else
-                        <h3 class="card-title">要観察者はいません</h3>
+                        <h3 class="card-title">要観察者はいません。要観察者が存在すると、表示されます。</h3>
                     @endif
                 </div>
                 @if (count($attentionVitals) > 0)
-                    <p id="accordion">バイタル</p>
+                    <p id="accordion">バイタル異常者がいます。確認して下さい。</p>
                     <div class=" accordion card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap">
                             <thead>
@@ -96,8 +96,15 @@
                             <tr>
                                 <th>ID</th>
                                 <th>名前</th>
-                                <th> </th>
-                                <th> </th>
+                                <th class="set">
+                                    <p class="vital-decription">バイタルを入力できます</p>
+                                    <p class="meal-decription">食事量を入力できます</p>
+                                    <p class="water-decription">水分量を入力できます</p>
+                                </th>
+                                <th class="set">
+                                    <p class="edit-decription">入居者を編集できます</p>
+                                    <p class="delete-decription">入居者の退所処理を行います</p>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -110,22 +117,22 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="btn btn-default" href="{{ url('vitals/' . $tenant->id) }}">
+                                        <a class="vital btn btn-default" href="{{ url('vitals/' . $tenant->id) }}">
                                             バイタル
                                         </a>
-                                        <a class="btn btn-default ms-1" href="{{ url('meals/' . $tenant->id) }}">
+                                        <a class="meal btn btn-default ms-1" href="{{ url('meals/' . $tenant->id) }}">
                                             食事
                                         </a>
-                                        <a class="btn btn-default ms-1" href="{{ url('waters/' . $tenant->id) }}">
+                                        <a class="water btn btn-default ms-1" href="{{ url('waters/' . $tenant->id) }}">
                                             水分
                                         </a>
                                     </td>
                                     <td class="d-flex">
                                         @if (Auth::user()->role_id === 1)
-                                            <a class="btn btn-primary"
+                                            <a class="edit btn btn-primary"
                                                 href="{{ url('tenants/edit/' . $tenant->id) }}">入居者編集</a>
-                                            <form action="{{ url('tenants/delete') }}" method="post"
-                                                onsubmit="return confirm('削除します。よろしいですか？')">
+                                            <form class="delete" action="{{ url('tenants/delete') }}" method="post"
+                                                onsubmit="return confirm('退所処理を行います。よろしいですか？')">
                                                 @csrf
                                                 <input type="hidden" name="id" value="{{ $tenant->id }}">
                                                 <input type="submit" value="退所" class="mx-1 btn btn-danger">
@@ -144,6 +151,75 @@
 
 @section('css')
     <style>
+        .set {
+            position: relative;
+        }
+
+        .vital-decription {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff;
+            border: #333 solid 1px;
+            border-radius: 5px;
+            padding: 3px;
+            z-index: 10;
+            opacity: 80%;
+            display: none;
+        }
+
+        .meal-decription {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff;
+            border: #333 solid 1px;
+            border-radius: 5px;
+            padding: 3px;
+            z-index: 10;
+            opacity: 80%;
+            display: none;
+        }
+
+        .water-decription {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff;
+            border: #333 solid 1px;
+            border-radius: 5px;
+            padding: 3px;
+            z-index: 10;
+            opacity: 80%;
+            display: none;
+        }
+
+        .edit-decription {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff;
+            border: #333 solid 1px;
+            border-radius: 5px;
+            padding: 3px;
+            z-index: 10;
+            opacity: 80%;
+            display: none;
+        }
+
+        .delete-decription {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff;
+            border: #333 solid 1px;
+            border-radius: 5px;
+            padding: 3px;
+            z-index: 10;
+            opacity: 80%;
+            display: none;
+        }
+
         .btn-create {
             font-size: unset !important;
             padding: 0.375rem 0.75rem !important;
@@ -184,11 +260,27 @@
 @section('js')
     <script>
         $(function() {
-            //クリックで動く
-            $('#accordion').click(function() {
+            //Accordionの処理
+            $('#accordion').click(() => {
                 $('.accordion').toggleClass('active');
                 $('#accordion').toggleClass('active');
             });
+            //hover時の処理
+            $('.vital').hover(() => {
+                $('.vital-decription').toggle();
+            })
+            $('.meal').hover(() => {
+                $('.meal-decription').toggle();
+            })
+            $('.water').hover(() => {
+                $('.water-decription').toggle();
+            })
+            $('.edit').hover(() => {
+                $('.edit-decription').toggle();
+            })
+            $('.delete').hover(() => {
+                $('.delete-decription').toggle();
+            })
         });
     </script>
 @stop
