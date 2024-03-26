@@ -14,7 +14,7 @@
                     @if (count($attentionVitals) > 0)
                         <h3 class="card-title">要観察者</h3>
                     @else
-                        <h3 class="card-title">要観察者はいません。要観察者が存在すると、表示されます。</h3>
+                        <h3 class="card-title">要観察者はいません。要観察者が存在すると表示されます。</h3>
                     @endif
                 </div>
                 @if (count($attentionVitals) > 0)
